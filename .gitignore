@@ -1,0 +1,11 @@
+# Node
+dif-web/node_modules
+dif-web/dist
+
+# Laravel
+backend/vendor
+backend/.env
+
+# General
+.DS_Store
+.env
