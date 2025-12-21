@@ -1,11 +1,11 @@
+import { RouterProvider } from "react-router-dom";
+import { appRouter } from "./routes/app.router";
 
 
 export const SistemaGestionApp = () => {
 
 
     return (
-        <>
-            <h1 className="text-6xl">hola mundo</h1>
-        </>
+        <RouterProvider router={appRouter} />
     );
 }
