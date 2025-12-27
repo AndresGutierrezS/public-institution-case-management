@@ -1,7 +1,10 @@
-import React from 'react'
+import { CustomSearch } from "../../components/CustomSearch"
 
 export const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <>
+      <CustomSearch />
+      <p>HomePage</p>
+    </>
   )
 }
