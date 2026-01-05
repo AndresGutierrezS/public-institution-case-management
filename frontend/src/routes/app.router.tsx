@@ -8,6 +8,7 @@ import { RecoverPage } from "../auth/pages/recover/RecoverPage";
 import { DashboardPage } from "../management/pages/dashboard/DashboardPage";
 import { AdminLayout } from "../admin/layouts/AdminLayout";
 import AdminDashboard from "../admin/pages/AdminDashboard";
+import { MinorPage } from "../management/pages/Minor/MinorPage";
 
 
 export const appRouter = createBrowserRouter([
@@ -22,6 +23,10 @@ export const appRouter = createBrowserRouter([
             {
                 path: 'dashboard',
                 element: <DashboardPage />
+            },
+            {
+                path: 'minor/:minorCurp',
+                element: <MinorPage />
             }
         ]
     },

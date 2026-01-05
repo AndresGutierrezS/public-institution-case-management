@@ -1,6 +1,7 @@
 import { Eye, FileText, Pencil } from "lucide-react"
 import { minorsMock } from "../../mocks/minor.model.mock";
 import { calculateAge } from "../../utils/calculateAge";
+import { Link } from "react-router-dom";
 
 export const CustomRecordsTable = () => {
   return (
@@ -43,19 +44,19 @@ export const CustomRecordsTable = () => {
                 </td>
 
                 <td className="px-3 py-3 hidden md:table-cell">
-                  LOGF020101HDFRRA8
+                  {minor.curp}
                 </td>
 
                 <td className="px-3 py-3 hidden lg:table-cell">
-                  01/01/2015
+                  {minor.birthday}
                 </td>
 
                 <td className="px-3 py-3 hidden lg:table-cell">
-                  15/03/2023
+                  {minor.placementDate}
                 </td>
 
                 <td className="px-3 py-3 hidden md:table-cell">
-                  Casa Hogar Esperanza
+                  {minor.shelter.name}
                 </td>
 
                 <td className="px-3 py-3 hidden lg:table-cell">
@@ -63,16 +64,24 @@ export const CustomRecordsTable = () => {
                 </td>
 
                 <td className="px-3 py-3">
-                  <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-green-100 text-green-700">
-                    ACTIVO
+                  <span 
+                    className={`inline-block text-xs font-semibold px-3 py-1 rounded-full ${minor.status === 'ACTIVE' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}
+                    >
+                    {minor.status}
                   </span>
                 </td>
 
                 <td className="px-3 py-3">
                   <div className="flex justify-center gap-3">
-                    <Pencil className="w-4 h-4 cursor-pointer hover:text-blue-600" />
-                    <Eye className="w-4 h-4 cursor-pointer hover:text-gray-700" />
-                    <FileText className="w-4 h-4 cursor-pointer hover:text-green-600" />
+                    <Link to={`/minor/${minor.curp}`} >
+                      <Pencil className="w-4 h-4 cursor-pointer hover:text-blue-600" />
+                    </Link>
+                    <Link to={`/minor/${minor.curp}`} >
+                      <Eye className="w-4 h-4 cursor-pointer hover:text-gray-700" />
+                    </Link>
+                    <Link to={`/minor/${minor.curp}`} >
+                      <FileText className="w-4 h-4 cursor-pointer hover:text-green-600" />
+                    </Link>
                   </div>
                 </td>
               </tr>
