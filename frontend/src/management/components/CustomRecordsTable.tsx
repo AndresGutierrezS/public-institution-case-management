@@ -5,9 +5,17 @@ import { Link, useSearchParams } from "react-router-dom";
 
 export const CustomRecordsTable = () => {
   
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const query = searchParams.get('query') || undefined; 
+  
+  const queryPage = searchParams.get('page') || '1';
+  const page = isNaN(+queryPage) ? 1 : +queryPage;
+  const queryRange = searchParams.get('range') || '8';
+  const range = isNaN(+queryRange) ? 8 : +queryRange;
+
+  const start = (page - 1) * range;
+  const end = start + range;
 
   const filteredMinors = !query ?
     minorsMock :
@@ -16,6 +24,7 @@ export const CustomRecordsTable = () => {
       minor.curp.toLowerCase().includes(query) ||
       minor.shelter.name.toLowerCase().includes(query)
     );
+
   
   return (
     <section className="bg-white rounded-md shadow-sm overflow-hidden">
@@ -48,8 +57,8 @@ export const CustomRecordsTable = () => {
           {/* Table body */}
           <tbody>
             
-            { filteredMinors.map(minor => (
-              <tr className="border-b last:border-b-0">
+            { filteredMinors.slice(start, end).map(minor => (
+              <tr key={minor.id} className="border-b last:border-b-0">
                 <td className="px-3 py-3">
                   <p className="font-semibold">{minor.fullName}</p>
                   <p className="text-xs text-gray-500">{minor.gender} · {calculateAge(minor.birthday)} años</p>
