@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export const CustomHeader = () => {
     return (
@@ -5,14 +6,16 @@ export const CustomHeader = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-7 h-full flex items-center justify-between">
           
           {/* Left */}
-          <div className="flex items-center gap-3">
-            <img src="./images/logoDIF.png" alt="Logo" className="w-16 h-10" />
+          <div className="flex items-center gap-1">
+            <Link to={'/'}>
+              <img src="./images/logo.png" alt="Logo" className="w-16 h-11 cursor-pointer" />
+            </Link>
             <div>
               <p className="text-lg md:text-xl font-semibold leading-tight">
                 Sistema Seguimiento de Gestión de Menores
               </p>
               <p className="text-sm text-blue-100">
-                DIF Guadalajara
+                Guadalajara
               </p>
             </div>
           </div>
@@ -24,7 +27,7 @@ export const CustomHeader = () => {
               <p className="text-sm font-semibold">Administrador</p>
               <p className="text-xs">Último acceso: 17/07/2025 21:32</p>
             </div>
-            <button className="rounded-md border text-sm px-3 py-1.5">
+            <button className="rounded-md border text-sm px-3 py-1.5 cursor-pointer">
               Cerrar sesión
             </button>
           </div>

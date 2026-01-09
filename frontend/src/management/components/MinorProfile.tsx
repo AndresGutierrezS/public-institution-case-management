@@ -1,4 +1,4 @@
-import { minorProfileSections } from "../utils/minorProfile.data"
+import { minorProfileSections } from "../data/minorProfile.data"
 import { ProfileSection } from "./ProfileSection"
 
 

@@ -1,6 +1,13 @@
+import type { Minor } from "../../mocks/minor.model.mock"
+import { calculateAge } from "../../utils/calculateAge"
 
 
-export const MinorSummaryCard = () => {
+interface Props {
+  minor: Minor;
+}
+
+export const MinorSummaryCard = ({minor}: Props) => {
+  
   return (
     <section className="bg-white my-6 p-6 rounded-lg shadow-sm">
       <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center sm:items-start">
@@ -13,19 +20,19 @@ export const MinorSummaryCard = () => {
 
         <div className="text-gray-600 flex flex-col gap-1 text-center sm:text-left">
           <p className="font-bold text-xl sm:text-2xl text-(--color-principal)">
-            Juan Perez Lopez
+            {minor.fullName}
           </p>
 
           <p className="text-sm">
-            Curp: Curp34242343 · Edad: 15 anios · Sexo: Masculino
+            Curp: {minor.curp} · Edad: {calculateAge(minor.birthday)} anios · Sexo: {minor.gender}
           </p>
 
-          <p className="bg-green-100 text-green-700 px-3 py-1 rounded-2xl text-xs w-fit mx-auto sm:mx-0">
-            Activo
+          <p className={`${minor.status === 'ACTIVE' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-shadow-red-700'}  px-3 py-1 rounded-2xl text-xs w-fit mx-auto sm:mx-0`}>
+            {minor.status}
           </p>
 
           <p className="text-sm">
-            Registro: 2025-08-01
+            Registro: {minor.placementDate}
           </p>
         </div>
       </div>
