@@ -15,4 +15,14 @@ class Minor extends Model
         'gender',
         'nationality',
     ];
+
+    public function admission()
+    {
+        return $this->hasOne(Admission::class);
+    }
+
+    public function caretakers()
+    {
+        return $this->hasMany(Caretaker::class);
+    }
 }
