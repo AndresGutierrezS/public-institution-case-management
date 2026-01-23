@@ -25,4 +25,14 @@ class Minor extends Model
     {
         return $this->hasMany(Caretaker::class);
     }
+
+    public function judicialRecord()
+    {
+        return $this->hasOne(JudicialRecord::class);
+    }
+
+    public function followUps()
+    {
+        return $this->hasOne(FollowUp::class);
+    }
 }
