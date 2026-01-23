@@ -11,7 +11,7 @@ export const CaretakersSection = () => {
         </button>
       </div>
 
-      <div className="grid md:grid-cols-2 grid-cols-1 gap-4 px-3 py-6 border border-gray-200 rounded-md">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4 px-3 py-6 border border-gray-200 rounded-md">
         <div className="flex flex-col">
           <label htmlFor="caretaker-name" className="label">
             Nombre completo
@@ -31,6 +31,18 @@ export const CaretakersSection = () => {
           <input
             id="caretaker-relationship"
             name="caretaker_relationship"
+            type="text"
+            className="input"
+          />
+        </div>
+        
+        <div className="flex flex-col">
+          <label htmlFor="caretaker-contact" className="label">
+            Numero de contacto
+          </label>
+          <input
+            id="caretaker-contact"
+            name="caretaker_contact"
             type="text"
             className="input"
           />

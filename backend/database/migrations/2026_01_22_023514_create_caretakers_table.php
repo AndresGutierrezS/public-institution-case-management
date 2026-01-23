@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('minor_id');
             $table->string('full_name');
             $table->string('relationship');
-            $table->numeric('phone_number');
+            $table->string('phone_number')->nullable();
             $table->timestamps();
         });
     }
