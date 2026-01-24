@@ -35,4 +35,9 @@ class Minor extends Model
     {
         return $this->hasOne(FollowUp::class);
     }
+
+    public function protectionMeasures()
+    {
+        return $this->hasMany(ProtectionMeasure::class);
+    }
 }
