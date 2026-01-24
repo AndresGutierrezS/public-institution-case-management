@@ -40,4 +40,9 @@ class Minor extends Model
     {
         return $this->hasMany(ProtectionMeasure::class);
     }
+
+    public function currentLocation()
+    {
+        return $this->hasOne(CurrentLocation::class);
+    }
 }
